@@ -1,7 +1,7 @@
 {
   "name": "aula_dio",
   "version": "1.0.0",
-  "description": "",
+  "description": "Projeto simples para treino de habilidades em Node.js, criando um servidor com express para cadastrar e consultar registros de astronautas na ISS, utilizando um array para simular o banco de dados.",
   "main": "index.js",
   "type": "module",
   "scripts": {
