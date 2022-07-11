@@ -1,12 +1,22 @@
 import database from "../database.js";
 
+const isEmpty = (string) => {
+    return (string === '');
+}
+
 const astronautasController = {
     signUp: (request, response) => {
         try{
             const { name } = request.body;
-            database.push(name);
-      
-            return response.status(201).json({"message": "Astronauta cadastrado com sucesso!"});
+
+            if(isEmpty(name)){
+                return response.status(203).json({"message": "Erro ao cadastrar astronauta - Nome não fonecido"});
+            }else{
+                database.push(name);
+          
+                return response.status(201).json({"message": "Astronauta cadastrado com sucesso!"});
+            }
+
          }catch(error){
             return response.status(201).json({"message": `Erro ao cadastrar astronauta - ${error}`})
          }
