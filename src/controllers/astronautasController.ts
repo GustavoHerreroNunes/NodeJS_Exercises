@@ -1,11 +1,12 @@
-import database from "../database.js";
+import { Request, Response } from "express";
+import { database } from "../database";
 
-const isEmpty = (string) => {
-    return (string === '');
+const isEmpty = (name: string) => {
+    return (name === '');
 }
 
-const astronautasController = {
-    signUp: (request, response) => {
+export class AstronautasController{
+    signUp(request: Request, response: Response): Response{
         try{
             const { name } = request.body;
 
@@ -20,11 +21,9 @@ const astronautasController = {
          }catch(error){
             return response.status(201).json({"message": `Erro ao cadastrar astronauta - ${error}`})
          }
-    },
+    }
 
-    consult: (request, response) => {
+    consult(request: Request, response: Response): Response{
         return response.status(200).json(database);
     }
 }
-
-export default astronautasController

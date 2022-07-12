@@ -1,7 +1,8 @@
 import { Router } from "express";
-import astronautasController from "./controllers/astronautasController.js";
+import { AstronautasController } from "./controllers/astronautasController";
 
 const routes = Router();
+const astronautasController = new AstronautasController();
 
 routes.get('/astronautas', astronautasController.consult);
 
